@@ -8,6 +8,7 @@ import Page4 from './layouts/Page4';
 import Page5 from './layouts/Page5';
 import SkupZlota from './layouts/SkupZlota';
 import SkupMonet from './layouts/SkupMonet';
+import Admin from './layouts/Admin';
 
 export const router = createBrowserRouter([
 	{
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
 			{
 				element: <SkupMonet />,
 				path: '/skup-monet',
+			},
+			{
+				element: <Admin />,
+				path: '/admin',
 			},
 		],
 	},

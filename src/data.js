@@ -46,7 +46,7 @@ export const exchange_rates = [
 		title: 'CAD',
 		logo: cad,
 		purchase: '3.915',
-		sell: '3.94',
+		sell: '3.94', 
 	},
 	{
 		title: 'HUF',
