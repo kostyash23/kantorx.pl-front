@@ -36,11 +36,9 @@ const HomePage = () => {
 
     fetchCurrencies() // виклик функції після рендеру компонента
   }, [])
-
-  console.log('currencies', currencies)
   return (
     <>
-      <Main />
+      <Main currencies={currencies} />
       <TableHome
         data={currencies}
         imgUrl={exchange_rates}
