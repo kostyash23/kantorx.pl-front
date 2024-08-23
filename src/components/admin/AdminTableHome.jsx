@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:4200/currency'
+const API_URL = 'http://92.205.234.146:4200/currency'
 
 export const updateCurrency = async (id, purchase, sell) => {
   try {

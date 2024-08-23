@@ -6,7 +6,7 @@ import AdminTableIron from './AdminTableIron'
 import { useTranslation } from 'react-i18next'
 import AdminTableMonet from './AdminTableMonet'
 
-const API_URL = 'http://localhost:4200/'
+const API_URL = 'http://92.205.234.146:4200/'
 
 const getCurrencies = async () => {
   try {
@@ -354,7 +354,7 @@ const AdminComponent = () => {
     <div>
       {!showAdmin ? (
         <div className=" items-center flex justify-center p-10">
-          <div className="bg-white ">
+          <div className="bg-white  p-2">
             <input
               type="password"
               value={inputPassword}

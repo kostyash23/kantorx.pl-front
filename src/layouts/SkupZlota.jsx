@@ -4,7 +4,7 @@ import Table from '../components/Table'
 import axios from 'axios'
 import { useTranslation } from 'react-i18next'
 
-const API_URL = 'http://localhost:4200/iron'
+const API_URL = 'http://92.205.234.146:4200/iron'
 const getAllIron = async () => {
   try {
     const response = await axios.get(API_URL)

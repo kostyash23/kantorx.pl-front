@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios'
 
 // в поле price вписываем новый курс //
-const API_URL = 'http://localhost:4200/currency'
+const API_URL = 'http://92.205.234.146:4200/currency'
 
 export const getCurrencies = async () => {
   try {

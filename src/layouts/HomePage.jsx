@@ -9,7 +9,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import TableHome from '../components/TableHome'
 
-const API_URL = 'http://localhost:4200/currency'
+const API_URL = 'http://92.205.234.146:4200/currency'
 
 export const getCurrencies = async () => {
   try {

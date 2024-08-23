@@ -11,48 +11,48 @@ import SkupMonet from './layouts/SkupMonet';
 import Admin from './layouts/Admin';
 
 export const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <Layout />,
-		children: [
-			{
-				element: <HomePage />,
-				index: true,
-			},
-			{
-				element: <Page1 />,
-				path: '/kurs-euro-sprzedaz-kantor-warszawa',
-			},
-			{
-				element: <Page2 />,
-				path: '/korona-czeska-kantor-warszawa',
-			},
-			{
-				element: <Page3 />,
-				path: '/kurs-hrywny-kantor-warszawa',
-			},
-			{
-				element: <Page4 />,
-				path: '/skup-monet-kolekcjonerskich-warszawa',
-			},
-			{
-				element: <Page5 />,
-				path: '/skup-zlota-warszawa-najlepsza-cena',
-			},
-			{
-				element: <SkupZlota />,
-				path: '/skup-zlota',
-			},
-			{
-				element: <SkupMonet />,
-				path: '/skup-monet',
-			},
-			{
-				element: <Admin />,
-				path: '/admin',
-			},
-		],
-	},
-]);
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        element: <HomePage />,
+        index: true
+      },
+      {
+        element: <Page1 />,
+        path: '/kurs-euro-sprzedaz-kantor-warszawa'
+      },
+      {
+        element: <Page2 />,
+        path: '/korona-czeska-kantor-warszawa'
+      },
+      {
+        element: <Page3 />,
+        path: '/kurs-hrywny-kantor-warszawa'
+      },
+      {
+        element: <Page4 />,
+        path: '/skup-monet-kolekcjonerskich-warszawa'
+      },
+      {
+        element: <Page5 />,
+        path: '/skup-zlota-warszawa-najlepsza-cena'
+      },
+      {
+        element: <SkupZlota />,
+        path: '/skup-zlota'
+      },
+      {
+        element: <SkupMonet />,
+        path: '/skup-monet'
+      },
+      {
+        element: <Admin />,
+        path: '/admin12345'
+      }
+    ]
+  }
+])
 
 export default router;
