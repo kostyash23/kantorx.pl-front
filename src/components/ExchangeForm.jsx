@@ -5,11 +5,17 @@ import cad from '../assets/currency/cad.svg';
 import chf from '../assets/currency/chf.svg';
 import czk from '../assets/currency/czk.svg';
 import eur from '../assets/currency/eur.svg';
-import gbp from '../assets/currency/gbp.svg';
-import huf from '../assets/currency/huf.svg';
-import zlt from '../assets/currency/poland.svg';
-import uah from '../assets/currency/uah.svg';
-import usd from '../assets/currency/usd.svg';
+import sek from '../assets/currency/sek.png'
+import gbp from '../assets/currency/gbp.svg'
+import nok from '../assets/currency/nok.png'
+import huf from '../assets/currency/huf.svg'
+import zlt from '../assets/currency/poland.svg'
+import dkk from '../assets/currency/dkk.png'
+import uah from '../assets/currency/uah.svg'
+import usd from '../assets/currency/usd.svg'
+import jpy from '../assets/currency/jpy.png'
+import cny from '../assets/currency/cny.png'
+
 import Decimal from 'decimal.js'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
@@ -36,7 +42,12 @@ const currencies = [
   { title: 'CAD', img: cad, price: 2.82 },
   { title: 'HUF', img: huf, price: 0.012 },
   { title: 'CZK', img: czk, price: 0.18 },
-  { title: 'UAH', img: uah, price: 0.085 }
+  { title: 'UAH', img: uah, price: 0.085 },
+  { title: 'UAH', img: nok, price: 0.085 },
+  { title: 'UAH', img: sek, price: 0.085 },
+  { title: 'UAH', img: dkk, price: 0.085 },
+  { title: 'UAH', img: jpy, price: 0.085 },
+  { title: 'UAH', img: cny, price: 0.085 }
 ]
 
 // в поле price вписываем новый курс //
