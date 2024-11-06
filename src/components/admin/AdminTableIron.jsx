@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const API_URL = 'http://92.205.234.146:4200/iron'
+const API_URL = 'https://dasdsada21123.online/iron'
 
 export const updateIron = async (id, purchase, sell) => {
   try {

@@ -15,6 +15,9 @@ const Main = ({ currencies }) => {
         <p className="lg:max-w-[360px] 2xl:max-w-full leading-[26px]">
           {t('main_text')}
         </p>
+        <p className="text-lg sm:text-xl lg:text-2xl font-semibold leading-[32px] uppercase">
+          {t('main_text_attation')}
+        </p>
       </div>
       <ExchangeForm dataCurrency={currencies} />
     </section>

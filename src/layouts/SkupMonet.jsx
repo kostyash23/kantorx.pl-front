@@ -4,7 +4,7 @@ import Table from '../components/Table'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 
-const API_URL = 'http://92.205.234.146:4200/monet'
+const API_URL = 'https://dasdsada21123.online/monet'
 const getAllMonet = async () => {
   try {
     const response = await axios.get(API_URL)

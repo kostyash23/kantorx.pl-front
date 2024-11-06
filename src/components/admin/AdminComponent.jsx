@@ -6,7 +6,7 @@ import AdminTableIron from './AdminTableIron'
 import { useTranslation } from 'react-i18next'
 import AdminTableMonet from './AdminTableMonet'
 
-const API_URL = 'http://92.205.234.146:4200/'
+const API_URL = 'https://dasdsada21123.online/'
 
 const getCurrencies = async () => {
   try {

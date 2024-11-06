@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-const API_URL = 'http://92.205.234.146:4200/currency'
+const API_URL = 'https://dasdsada21123.online/currency'
 
 export const updateCurrency = async (id, purchase, sell) => {
   try {
@@ -42,7 +42,7 @@ const AdminTableHome = ({ item, logo }) => {
         onSubmit={handleSubmit}
         className="flex justify-between items-center"
       >
-        {logo && <img className="inline-block mr-3" src={logo} />}
+        {logo && <img className="inline-block mr-3 max-w-10" src={logo} />}
         <div className="text-black">{title}</div>
         <div className="mb-4">
           <label

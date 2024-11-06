@@ -10,11 +10,12 @@ import huf from '../assets/currency/huf.svg';
 import zlt from '../assets/currency/poland.svg';
 import uah from '../assets/currency/uah.svg';
 import usd from '../assets/currency/usd.svg';
-import { useTranslation } from 'react-i18next';
+import Decimal from 'decimal.js'
+import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 
 // в поле price вписываем новый курс //
-const API_URL = 'http://92.205.234.146:4200/currency'
+const API_URL = 'https://dasdsada21123.online/currency'
 
 export const getCurrencies = async () => {
   try {
@@ -42,8 +43,8 @@ const currencies = [
 
 const ExchangeForm = ({ dataCurrency }) => {
   const [newCurrency, setNewCurrency] = useState([
-    { title: 'PLN', img: zlt, price: 1 },
-    { title: 'USD', img: usd, price: 3.92 }
+    { title: 'PLN', img: zlt, price: 1, sell: 0 },
+    { title: 'USD', img: usd, price: 3.92, sell: 0 }
   ])
   const [fromCurrency, setFromCurrency] = useState(newCurrency[0])
   const [toCurrency, setToCurrency] = useState(newCurrency[1])
@@ -58,23 +59,24 @@ const ExchangeForm = ({ dataCurrency }) => {
       try {
         const data = await getCurrencies()
         const newData = [
-          { title: 'PLN', img: zlt, price: 1 },
+          { title: 'PLN', img: zlt, price: 1, sell: 1 },
           ...data.map((item, index) => ({
             title: item.title,
-            img: currencies[index + 1].img,
-            price: item.purchase
+            img: currencies[index + 1]?.img || zlt, // Adding fallback to prevent out-of-bounds access
+            price: item.purchase,
+            sell: item.sell
           }))
         ]
         setNewCurrency(newData)
         setFromCurrency(newData[0])
         setToCurrency(newData[1])
       } catch (error) {
-        console.error('Failed to fetch currencies', error)
+        console.error('Failed to fetch currencies:', error)
       }
     }
 
     fetchCurrencies()
-  }, [])
+  }, []) // Dependency array is empty, so this runs only once on mount
 
   const handleExchange = () => {
     const exchangeRate = fromCurrency.price / toCurrency.price
@@ -95,8 +97,18 @@ const ExchangeForm = ({ dataCurrency }) => {
 
   const handleAmountChange = (e) => {
     setAmount(e.target.value)
-    const exchangeRate = fromCurrency.price / toCurrency.price
-    setResult(e.target.value * exchangeRate)
+
+    // Використовуємо Decimal для обчислення точного курсу
+    const exchangeRate = new Decimal(fromCurrency.price).div(
+      new Decimal(toCurrency.sell)
+    )
+
+    // Обчислюємо результат із точністю
+    const result = new Decimal(e.target.value).mul(exchangeRate)
+
+    // Зберігаємо результат як число
+    setResult(result.toNumber())
+
     setIsTouched(true)
   }
 
@@ -238,7 +250,7 @@ const ExchangeForm = ({ dataCurrency }) => {
               </div>
               <input
                 type="text"
-                value={result !== '' ? result.toFixed(2) : ''}
+                value={result !== '' ? result : ''}
                 readOnly
                 className="bg-white p-4 h-[75px] text-black text-[19px] w-[250px] font-semibold flex items-center gap-4 rounded-[5px] shadow-input"
                 placeholder="0.00"
@@ -247,8 +259,7 @@ const ExchangeForm = ({ dataCurrency }) => {
           </div>
           <div className="text-center w-full">
             {t('form_3')} 1 {fromCurrency.title} ={' '}
-            {(fromCurrency.price / toCurrency.price).toFixed(2)}{' '}
-            {toCurrency.title}
+            {fromCurrency.price / toCurrency.price} {toCurrency.title}
           </div>
         </div>
       </div>
