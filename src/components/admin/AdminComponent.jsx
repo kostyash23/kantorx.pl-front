@@ -46,6 +46,9 @@ const AdminComponent = () => {
   const [currencies, setCurrencies] = useState([])
   const [irons, setIrons] = useState([])
   const [monet, setMonet] = useState([])
+  const currenciUSDNEW = currencies?.find(
+    (currency) => currency.title === 'USD NEW'
+  )
   const metals = [
     {
       title: t('metal_titles.0'),
@@ -320,13 +323,26 @@ const AdminComponent = () => {
         return (
           <div>
             <h1 className="text-2xl font-bold">Welcome, Admin!</h1>
-            {currencies?.map((item, index) => (
+            {currenciUSDNEW && (
               <AdminTableHome
-                key={item.id}
-                item={item}
-                logo={arr[index].logo}
+                key={currenciUSDNEW.id}
+                item={currenciUSDNEW}
+                logo={arr[0].logo}
               />
-            ))}
+            )}
+            {currencies?.map((item, index) => {
+              if (item.title === 'USD NEW') {
+                return null
+              } else {
+                return (
+                  <AdminTableHome
+                    key={item.id}
+                    item={item}
+                    logo={arr[index].logo}
+                  />
+                )
+              }
+            })}
           </div>
         )
       default:

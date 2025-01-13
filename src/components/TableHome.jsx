@@ -5,12 +5,14 @@ import { exchange_rates } from '../data';
 
 
 const TableHome = ({ data, title, ft, st, tt }) => {
-	const currentTime = new Date();
-	const updatedTime = subHours(currentTime, 0);
-	const formattedTime = format(updatedTime, 'dd.MM.yyyy, HH:mm:ss');
-	const { t } = useTranslation();
-	const imgs = exchange_rates
-	return (
+  const currentTime = new Date()
+  const updatedTime = subHours(currentTime, 0)
+  const formattedTime = format(updatedTime, 'dd.MM.yyyy, HH:mm:ss')
+  const { t } = useTranslation()
+  const imgs = exchange_rates
+  const currenciUSDNEW = data?.find((currency) => currency.title === 'USD NEW')
+
+  return (
     <section className="rounded-[10px] mb-8 bg-[#141414] p-5">
       <h2 className="section_title">{title}</h2>
       <span className="leading-[26px] sm:text-base text-sm block mb-5">
@@ -28,16 +30,31 @@ const TableHome = ({ data, title, ft, st, tt }) => {
             <div className=" py-3 pl-4 bg-[#060606]">{tt}</div>
           </div>
         </div>
-        {data.map(({ logo, title, purchase, sell }, index) => {
-          return (
-            <TableItem
-              key={index}
-              logo={imgs[index].logo}
-              title={title}
-              purchase={purchase}
-              sell={sell}
-            />
-          )
+
+        {currenciUSDNEW && (
+          <TableItem
+            key={0}
+            logo={imgs[0].logo}
+            title={currenciUSDNEW.title}
+            purchase={currenciUSDNEW.purchase}
+            sell={currenciUSDNEW.sell}
+          />
+        )}
+
+        {data?.map(({ logo, title, purchase, sell }, index) => {
+          if (title === 'USD NEW') {
+            return null
+          } else {
+            return (
+              <TableItem
+                key={index}
+                logo={imgs[index].logo}
+                title={title}
+                purchase={purchase}
+                sell={sell}
+              />
+            )
+          }
         })}
         <div className="rounded-[10px] mb-8 bg-[#141414] p-5">
           <p className="text-base font-medium mb-3 leading-[26px]">
