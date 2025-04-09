@@ -1,37 +1,36 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
-import inst from '../assets/inst.svg';
-import logo from '../assets/logo.svg';
-import tg from '../assets/tg.svg';
-import twitter from '../assets/twitter.svg';
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { NavLink } from 'react-router-dom'
+import inst from '../assets/inst.svg'
+import logo from '../assets/logo.svg'
+import tg from '../assets/tg.svg'
+import twitter from '../assets/twitter.svg'
 
 const Header = () => {
-	const [dropdownOpen, setDropdownOpen] = useState(false);
-	const [dropdownLangOpen, setDropdownLangOpen] = useState(false);
-	const [showBurger, setShowBurger] = useState(false);
-	const [savedLanguage, setSavedLanguage] = useState('pl');
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [dropdownLangOpen, setDropdownLangOpen] = useState(false)
+  const [showBurger, setShowBurger] = useState(false)
+  const [savedLanguage, setSavedLanguage] = useState('pl')
 
-	const { i18n, t } = useTranslation();
+  const { i18n, t } = useTranslation()
 
-	const languages = [
-		{ code: 'PL', name: 'Polski' },
-		{ code: 'EN', name: 'English' },
-		{ code: 'UA', name: 'Українська' },
-	];
+  const languages = [
+    { code: 'PL', name: 'Polski' },
+    { code: 'EN', name: 'English' },
+    { code: 'UA', name: 'Українська' }
+  ]
 
+  const handleLanguageChange = (code) => {
+    i18n.changeLanguage(code.toLowerCase())
+    localStorage.setItem('language', code.toLowerCase())
+    setDropdownLangOpen(false)
+  }
 
-	const handleLanguageChange = code => {
-		i18n.changeLanguage(code.toLowerCase());
-		localStorage.setItem('language', code.toLowerCase());
-		setDropdownLangOpen(false);
-	};
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen)
+  }
 
-	const toggleDropdown = () => {
-		setDropdownOpen(!dropdownOpen);
-	};
-
-	return (
+  return (
     <header className="flex items-center justify-between py-5 gap-5 xl:gap-10">
       <NavLink className="block" to="/">
         <img className="w-[180px]" src={logo} alt="logo" />
@@ -61,7 +60,7 @@ const Header = () => {
         </a>
         <a
           className=" duration-300 hover:scale-105"
-          href="https://t.me/manager_kantorx"
+          href="https://t.me/kantorXFabrykaNorblina"
         >
           <img src={tg} alt="tg" />
         </a>
@@ -151,6 +150,6 @@ const Header = () => {
       </div>
     </header>
   )
-};
+}
 
-export default Header;
+export default Header

@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import change from '../assets/change.svg';
-import aud from '../assets/currency/aud.svg';
-import cad from '../assets/currency/cad.svg';
-import chf from '../assets/currency/chf.svg';
-import czk from '../assets/currency/czk.svg';
-import eur from '../assets/currency/eur.svg';
+import { useEffect, useState } from 'react'
+import change from '../assets/change.svg'
+import aud from '../assets/currency/aud.svg'
+import cad from '../assets/currency/cad.svg'
+import chf from '../assets/currency/chf.svg'
+import czk from '../assets/currency/czk.svg'
+import eur from '../assets/currency/eur.svg'
 import sek from '../assets/currency/sek.png'
 import gbp from '../assets/currency/gbp.svg'
 import nok from '../assets/currency/nok.png'
@@ -283,7 +283,7 @@ const ExchangeForm = ({ dataCurrency }) => {
         disabled={!isTouched}
       >
         <a
-          href="https://t.me/manager_kantorx"
+          href="https://t.me/kantorXFabrykaNorblina"
           className={` ${isTouched ? 'cursor-pointer' : 'cursor-not-allowed'}`}
         >
           {t('form_btn')}
@@ -293,4 +293,4 @@ const ExchangeForm = ({ dataCurrency }) => {
   )
 }
 
-export default ExchangeForm;
+export default ExchangeForm
