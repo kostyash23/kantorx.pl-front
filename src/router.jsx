@@ -1,14 +1,15 @@
-import { createBrowserRouter } from 'react-router-dom';
-import Layout from './Layout';
-import HomePage from './layouts/HomePage';
-import Page1 from './layouts/Page1';
-import Page2 from './layouts/Page2';
-import Page3 from './layouts/Page3';
-import Page4 from './layouts/Page4';
-import Page5 from './layouts/Page5';
-import SkupZlota from './layouts/SkupZlota';
-import SkupMonet from './layouts/SkupMonet';
-import Admin from './layouts/Admin';
+import { createBrowserRouter } from 'react-router-dom'
+import Layout from './Layout'
+import HomePage from './layouts/HomePage'
+import Page1 from './layouts/Page1'
+import Page2 from './layouts/Page2'
+import Page3 from './layouts/Page3'
+import Page4 from './layouts/Page4'
+import Page5 from './layouts/Page5'
+import SkupZlota from './layouts/SkupZlota'
+import SkupMonet from './layouts/SkupMonet'
+import Admin from './layouts/Admin'
+import TelegramPage from './components/TelegramPage'
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
         path: '/skup-monet'
       },
       {
+        element: <TelegramPage />,
+        path: '/telegram'
+      },
+      {
         element: <Admin />,
         path: '/admin12345'
       }
@@ -55,4 +60,4 @@ export const router = createBrowserRouter([
   }
 ])
 
-export default router;
+export default router

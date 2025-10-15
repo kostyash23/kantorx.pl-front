@@ -37,7 +37,7 @@
 	"home_article-text": "Any financial transaction equivalent to or above 15,000 EUR (calculated at the average NBP exchange rate for the given day) is considered a high-value transaction, requiring the exchange office to implement special security measures, including verifying the client's identity based on any identification document: ID card, passport, residence permit, or another photo ID document, in accordance with the law.",
 	"contact_title": "CONTACT",
 	"contact_address": "Next to Super-pharm Pharmacy, <br /> Norblin Factory <br /> (first floor, Żelazna 51/53, 00-841 Warsaw",
-	"contact_schedule": "Monday - Saturday 10:00 – 20:00",
+	"contact_schedule": "Monday - Saturday 10:00 – 20:00, <br /> Sunday 11:00 – 20:00",
 	"money_titles": [
 		"20 Dollars Liberty",
 		"20 Dollars St. Gaudens",
@@ -142,5 +142,8 @@
 	"page_5-text-8": "In our point located in the Platinum Towers Gallery, you can buy various bars. Agkatnor.pl – gold buyout in Warsaw offers the best price per gram of fineness 333, 585, 750, 925, 999. If you are also interested in selling valuable metal in the form of coins – we also invite you to the premises located at Grzybowska Street.",
 	"page_5-text-9": "Our team of experienced experts is always ready to provide professional advice and assistance, answering any questions and solving any problems. Convenient location in the center of the capital, years of experience, openness to individual proposals – these are our values. We are a trustworthy partner in gold buyout and sale!",
 	"nav_main": "Main page",
-	"tg_contact": "Contact on Telegram"
+	"tg_contact": "Contact on Telegram",
+	"telegram_title": "Subscribe to our official Telegram channel {{brand}} to always have the best exchange rates and the option to reserve cash for yourself.",
+	"telegram_btn": "Open Telegram"
+
 }

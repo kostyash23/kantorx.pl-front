@@ -21,7 +21,7 @@ const Contacts = () => {
           </div>
 
           <div className="flex items-center md:justify-center lg:justify-start p-4 rounded-[5px] leading-[26px] bg-[#060606] w-full lg:text-base text-sm">
-            +48 576 089 289
+            +48 884 886 181
           </div>
 
           <div className="flex items-center justify-start p-4 rounded-[5px] leading-[26px] bg-[#060606] w-full lg:text-base text-sm">
