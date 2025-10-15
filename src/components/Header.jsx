@@ -24,6 +24,7 @@ const Header = () => {
     localStorage.setItem('language', lang)
     setSavedLanguage(code.toUpperCase())
     setDropdownLangOpen(false)
+    window.location.reload()
   }
 
   // 🟢 Комбіноване визначення мови
@@ -36,32 +37,48 @@ const Header = () => {
     }
 
     const browserLang = navigator.language.split('-')[0].toLowerCase()
-    const supported = ['pl', 'en', 'ua']
+    const supported = ['pl', 'en', 'ua', 'uk']
 
+    // 🟢 Якщо браузерна мова підтримується
     if (supported.includes(browserLang)) {
-      i18n.changeLanguage(browserLang)
-      setSavedLanguage(browserLang.toUpperCase())
-      localStorage.setItem('language', browserLang)
-    } else {
-      fetch('https://ipapi.co/json/')
-        .then((res) => res.json())
-        .then((data) => {
-          const country = data.country_code
-          console.log(country)
-          let lang = 'en'
-          if (country === 'PL') lang = 'pl'
-          else if (country === 'UA') lang = 'uk'
-          i18n.changeLanguage(lang)
-          setSavedLanguage(lang.toUpperCase())
-          localStorage.setItem('language', lang)
-        })
-        .catch(() => {
-          i18n.changeLanguage('en')
-          setSavedLanguage('EN')
-        })
+      const lang = browserLang === 'uk' ? 'ua' : browserLang
+      i18n.changeLanguage(lang)
+      setSavedLanguage(lang.toUpperCase())
+      localStorage.setItem('language', lang)
+      return
     }
+
+    // 🌍 Якщо не збережено і не визначено з браузера — пробуємо по IP
+    fetch('https://ipapi.co/json/')
+      .then((res) => res.json())
+      .then((data) => {
+        const country = data.country_code
+        let lang = 'en'
+        console.log('lang', lang)
+        if (country === 'PL') lang = 'pl'
+        else if (country === 'UA') lang = 'ua'
+        else if (country === 'GB' || country === 'US') lang = 'en'
+
+        i18n.changeLanguage(lang)
+        setSavedLanguage(lang.toUpperCase())
+        localStorage.setItem('language', lang)
+      })
+      .catch(() => {
+        i18n.changeLanguage('en')
+        setSavedLanguage('EN')
+      })
   }, [i18n])
 
+  useEffect(() => {
+    const saved = localStorage.getItem('language')
+    i18n.changeLanguage('pl') // спочатку швидко ставимо польську як дефолт
+    if (saved && saved !== 'pl') {
+      setTimeout(() => {
+        i18n.changeLanguage(saved)
+        setSavedLanguage(saved.toUpperCase())
+      }, 100) // невелика затримка, щоб уникнути "блимання"
+    }
+  }, [i18n])
   // 🧠 Якщо переклади ще не завантажені — не показуємо Header
   if (!ready) return null
 
