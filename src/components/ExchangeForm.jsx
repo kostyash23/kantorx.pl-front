@@ -283,7 +283,7 @@ const ExchangeForm = ({ dataCurrency }) => {
         disabled={!isTouched}
       >
         <a
-          href="https://t.me/kantorXFabrykaNorblina"
+          href="https://t.me/kantorxex"
           className={` ${isTouched ? 'cursor-pointer' : 'cursor-not-allowed'}`}
         >
           {t('form_btn')}

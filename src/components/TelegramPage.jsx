@@ -2,7 +2,7 @@ import { FaTelegramPlane } from 'react-icons/fa'
 import { useTranslation } from 'react-i18next'
 import { useEffect } from 'react'
 
-const TELEGRAM_LINK = 'https://t.me/kantorXFabrykaNorblina'
+const TELEGRAM_LINK = 'https://t.me/kantorxex'
 
 const TelegramPage = () => {
   const { t } = useTranslation()

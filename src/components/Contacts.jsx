@@ -11,7 +11,7 @@ const Contacts = () => {
         <div className="flex lg:flex-col flex-wrap md:flex-row flex-col gap-4 2xl:w-[500px] lg:w-[360px] w-full">
           <a
             className="bg-white text-center font-semibold text-black px-2 py-4 rounded-[5px]"
-            href="https://t.me/kantorXFabrykaNorblina"
+            href="https://t.me/kantorxex"
           >
             {t('telegram_contact')}
           </a>

@@ -114,7 +114,7 @@ const Header = () => {
         </a>
         <a
           className="duration-300 hover:scale-105"
-          href="https://t.me/kantorXFabrykaNorblina"
+          href="https://t.me/kantorxex"
           target="_blank"
           rel="noopener noreferrer"
         >
